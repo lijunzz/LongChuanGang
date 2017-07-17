@@ -1,4 +1,4 @@
-package lcg.app.junzz.net.longchuangang;
+package net.junzz.app.lcg;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package lcg.app.junzz.net.longchuangang;
+package net.junzz.app.lcg;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("lcg.app.junzz.net.longchuangang", appContext.getPackageName());
+        assertEquals("net.junzz.app.lcg", appContext.getPackageName());
     }
 }

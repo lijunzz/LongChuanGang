@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-    package="lcg.app.junzz.net.longchuangang">
+    package="net.junzz.app.lcg">
 
     <application
         android:allowBackup="true"

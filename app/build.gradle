@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
     defaultConfig {
-        applicationId "lcg.app.junzz.net.longchuangang"
+        applicationId "net.junzz.app.lcg"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
