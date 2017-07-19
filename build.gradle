@@ -23,3 +23,14 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+// Define versions in a single place
+ext {
+    // Sdk and tools
+    minSdkVersion = 21
+    maxSdkVersion = 26
+    buildToolsVersion = '26.0.0'
+
+    // App dependencies
+    supportVersion = '26.+'
+}
