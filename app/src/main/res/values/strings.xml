@@ -1,3 +1,12 @@
 <resources>
+
     <string name="app_name">龙船港</string>
+
+    <string name="main_menu_create">走一个</string>
+
+    <string name="create_key">因为</string>
+    <string name="create_value">所以</string>
+    <string name="create_append">增加</string>
+    <string name="create_save">保存</string>
+
 </resources>

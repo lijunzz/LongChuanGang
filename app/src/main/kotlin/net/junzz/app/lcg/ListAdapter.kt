@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.widget.TextView
 
-class ListAdapter(val data: MutableList<String>) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+class ListAdapter(val data: List<String>) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val textView = TextView(parent.context)

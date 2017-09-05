@@ -1,19 +1,22 @@
 package net.junzz.app.lcg
 
-import android.app.Activity
 import android.content.ContentValues
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v4.view.ViewPager
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.Gravity
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 
-class MainActivity : Activity() {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +38,7 @@ class MainActivity : Activity() {
         emptyView.textSize = 32f
         emptyView.gravity = Gravity.CENTER
         emptyView.typeface = Typeface.DEFAULT_BOLD
-        emptyView.setTextColor(Color.BLACK)
+        emptyView.setTextColor(Color.parseColor("#A9B7C6"))
 
         val dbHelper = LcgDbHelper(this)
 
@@ -57,7 +60,7 @@ class MainActivity : Activity() {
     private fun initListPage(): View {
         val listView = RecyclerView(this)
         listView.layoutManager = LinearLayoutManager(this)
-        val listData = ArrayList<String>()
+        val listData = mutableListOf<String>()
 
         val dbHelper = LcgDbHelper(this)
         val db = dbHelper.writableDatabase
@@ -76,5 +79,20 @@ class MainActivity : Activity() {
         val listAdapter = ListAdapter(listData)
         listView.adapter = listAdapter
         return listView
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.info_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.create -> {
+                startActivity(Intent(this, CreateActivity::class.java))
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 }
