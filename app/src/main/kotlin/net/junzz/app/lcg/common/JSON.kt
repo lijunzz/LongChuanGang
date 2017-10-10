@@ -1,5 +1,5 @@
 package net.junzz.app.lcg.common
 
-fun <T> Any.toJson(json: T) : String{
-    return ""
-}
+import com.squareup.moshi.Moshi
+
+fun <T> toJson(type: Class<T>, value: T) = Moshi.Builder().build().adapter(type).toJson(value)!!

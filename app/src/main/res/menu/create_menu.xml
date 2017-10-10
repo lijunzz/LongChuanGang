@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/create"
-        android:title="@string/create_append"
+        android:id="@+id/insert"
+        android:title="@string/create_insert"
         app:showAsAction="ifRoom" />
 
     <item

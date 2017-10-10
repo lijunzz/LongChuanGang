@@ -32,5 +32,5 @@ ext {
     buildToolsVersion = '26.0.0'
 
     // App dependencies
-    supportVersion = '26.+'
+    supportVersion = '26.0.0-alpha1'
 }

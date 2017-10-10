@@ -12,6 +12,8 @@ class SplashActivity : Activity() {
         super.onCreate(savedInstanceState)
         // 使用夜间模式
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        // 使设置生效
+        recreate()
     }
 
     override fun onResume() {

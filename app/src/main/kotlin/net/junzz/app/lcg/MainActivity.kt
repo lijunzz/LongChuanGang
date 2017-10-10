@@ -65,12 +65,14 @@ class MainActivity : AppCompatActivity() {
         val dbHelper = LcgDbHelper(this)
         val db = dbHelper.writableDatabase
 
-        val projection = arrayOf(LcgContract.LcgEntry.COLUMN_NAME_TITLE)
+        // 待查询项
+        val projection = arrayOf(LcgContract.LcgEntry.COLUMN_NAME_TITLE, LcgContract.LcgEntry.COLUMN_NAME_REMARK)
         val cursor = db.query(LcgContract.LcgEntry.TABLE_NAME, projection, null, null, null, null, null)
         with(cursor) {
             while (moveToNext()) {
                 val title = getString(getColumnIndexOrThrow(LcgContract.LcgEntry.COLUMN_NAME_TITLE))
-                listData.add(title)
+                val mark = getString(getColumnIndexOrThrow(LcgContract.LcgEntry.COLUMN_NAME_REMARK))
+                listData.add("$title : $mark")
             }
             close()
         }

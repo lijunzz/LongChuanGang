@@ -10,12 +10,13 @@ class LcgDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, n
         db.execSQL(SQL_CREATE_LISTS)
     }
 
-    override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onUpgrade(db: SQLiteDatabase, p1: Int, p2: Int) {
+        db.execSQL("DROP TABLE IF EXISTS ${LcgContract.LcgEntry.TABLE_NAME}")
+        onCreate(db)
     }
 
     companion object {
-        val DATABASE_VERSION = 1
+        val DATABASE_VERSION = 2
         val DATABASE_NAME = "lcg.db"
 
         /** 创建 lists 表 */

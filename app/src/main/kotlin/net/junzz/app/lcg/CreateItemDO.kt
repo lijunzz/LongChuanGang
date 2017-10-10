@@ -1,3 +1,3 @@
 package net.junzz.app.lcg
 
-data class CreateItemDO(var key: String, var value: String)
+data class CreateItemDO(var key: String = "", var value: String = "")

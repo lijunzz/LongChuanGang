@@ -6,7 +6,8 @@
 
     <string name="create_key">因为</string>
     <string name="create_value">所以</string>
-    <string name="create_append">增加</string>
+    <string name="create_insert">新增</string>
     <string name="create_save">保存</string>
+    <string name="create_tip_title">请输入标题</string>
 
 </resources>
