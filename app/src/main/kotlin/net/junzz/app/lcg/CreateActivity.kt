@@ -8,8 +8,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
-import net.junzz.app.lcg.common.logDebug
-import net.junzz.app.lcg.common.toJson
+import net.junzz.app.util.JsonUtils
+import net.junzz.app.util.LogUtils
 
 class CreateActivity : AppCompatActivity() {
 
@@ -45,7 +45,7 @@ class CreateActivity : AppCompatActivity() {
                 return true
             }
             R.id.save -> {
-                logDebug("save:${toJson(List::class.java, mAdapter.data)}")
+                LogUtils.debug("save:${JsonUtils.toJson(List::class.java, mAdapter.data)}")
                 saveContents()
                 return true
             }
@@ -68,10 +68,10 @@ class CreateActivity : AppCompatActivity() {
 
         val values = ContentValues()
         values.put(LcgContract.LcgEntry.COLUMN_NAME_TITLE, content)
-        values.put(LcgContract.LcgEntry.COLUMN_NAME_REMARK, toJson(List::class.java, mAdapter.data))
+        values.put(LcgContract.LcgEntry.COLUMN_NAME_REMARK, JsonUtils.toJson(List::class.java, mAdapter.data))
 
         val newRowId = db.insert(LcgContract.LcgEntry.TABLE_NAME, null, values)
-        logDebug("newRowId:$newRowId")
+        LogUtils.debug("newRowId:$newRowId")
 
         db.close()
     }

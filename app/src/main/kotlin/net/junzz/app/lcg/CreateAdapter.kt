@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import net.junzz.app.lcg.common.logDebug
+import net.junzz.app.util.LogUtils
 
 class CreateAdapter(val data: MutableList<CreateItemDO> = mutableListOf()) : RecyclerView.Adapter<CreateAdapter.CreateHolder>() {
 
@@ -47,7 +47,7 @@ class CreateAdapter(val data: MutableList<CreateItemDO> = mutableListOf()) : Rec
 
         val keyWatcher = object : TextWatcher {
             override fun afterTextChanged(editable: Editable) {
-                logDebug("afterTextChanged::$editable")
+                LogUtils.debug("afterTextChanged::$editable")
                 save(editable.toString())
             }
 

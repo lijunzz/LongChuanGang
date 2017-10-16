@@ -1,0 +1,37 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion rootProject.useSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.libSdkVersion
+        targetSdkVersion rootProject.useSdkVersion
+        versionCode 1
+        versionName "0.0.1"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    provided "com.android.support:appcompat-v7:$supportVersion"
+    provided "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    compile project(':util')
+
+    testCompile "junit:junit:$junitVersion"
+
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$espressoVersion", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.google.com' }
+}

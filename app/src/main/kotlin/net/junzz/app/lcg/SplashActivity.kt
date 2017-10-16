@@ -1,19 +1,20 @@
 package net.junzz.app.lcg
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.support.v7.app.AppCompatDelegate
+import android.support.v7.app.AppCompatActivity
 
-class SplashActivity : Activity() {
+class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        /*
         // 使用夜间模式
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         // 使设置生效
         recreate()
+        */
     }
 
     override fun onResume() {

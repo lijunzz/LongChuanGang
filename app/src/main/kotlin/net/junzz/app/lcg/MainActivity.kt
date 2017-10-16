@@ -1,6 +1,5 @@
 package net.junzz.app.lcg
 
-import android.content.ContentValues
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
@@ -9,7 +8,6 @@ import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
@@ -39,20 +37,6 @@ class MainActivity : AppCompatActivity() {
         emptyView.gravity = Gravity.CENTER
         emptyView.typeface = Typeface.DEFAULT_BOLD
         emptyView.setTextColor(Color.parseColor("#A9B7C6"))
-
-        val dbHelper = LcgDbHelper(this)
-
-        emptyView.setOnClickListener {
-            val db = dbHelper.writableDatabase
-
-            val values = ContentValues()
-            values.put(LcgContract.LcgEntry.COLUMN_NAME_TITLE, "App-${System.currentTimeMillis()}")
-            val newRowId = db.insert(LcgContract.LcgEntry.TABLE_NAME, null, values)
-            Log.d("TAG", "newRowId:$newRowId")
-
-            db.close()
-        }
-
         return emptyView
     }
 
