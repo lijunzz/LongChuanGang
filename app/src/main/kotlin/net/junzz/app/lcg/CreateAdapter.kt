@@ -10,14 +10,13 @@ import android.view.ViewGroup
 import android.widget.EditText
 import net.junzz.app.util.LogUtils
 
-class CreateAdapter(val data: MutableList<CreateItemDO> = mutableListOf()) : RecyclerView.Adapter<CreateAdapter.CreateHolder>() {
+class CreateAdapter(val data: MutableList<CreateItemDO> = mutableListOf())
+    : RecyclerView.Adapter<CreateAdapter.CreateHolder>() {
 
     override fun getItemCount() = data.size
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CreateHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.create_item, parent, false)
-        return CreateHolder(view)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
+            = CreateHolder(LayoutInflater.from(parent.context).inflate(R.layout.create_item, parent, false))
 
     override fun onBindViewHolder(holder: CreateHolder, position: Int) {
         // 变换颜色

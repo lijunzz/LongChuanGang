@@ -13,6 +13,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import net.junzz.app.util.ColorUtils
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val favoriteView = initFavoritePage()
         val listView = initListPage()
         val views = listOf(favoriteView, listView)
-        viewpager.adapter = MainPagerAdapter(views)
+        viewpager.adapter = MainAdapter(views)
         viewpager.currentItem = 1
     }
 
@@ -44,7 +45,8 @@ class MainActivity : AppCompatActivity() {
     private fun initListPage(): View {
         val listView = RecyclerView(this)
         listView.layoutManager = LinearLayoutManager(this)
-        val listData = mutableListOf<String>()
+
+        val listData = mutableListOf<ListItemDO>()
 
         val dbHelper = LcgDbHelper(this)
         val db = dbHelper.writableDatabase
@@ -55,8 +57,8 @@ class MainActivity : AppCompatActivity() {
         with(cursor) {
             while (moveToNext()) {
                 val title = getString(getColumnIndexOrThrow(LcgContract.LcgEntry.COLUMN_NAME_TITLE))
-                val mark = getString(getColumnIndexOrThrow(LcgContract.LcgEntry.COLUMN_NAME_REMARK))
-                listData.add("$title : $mark")
+//                val mark = getString(getColumnIndexOrThrow(LcgContract.LcgEntry.COLUMN_NAME_REMARK))
+                listData.add(ListItemDO(ColorUtils.newRandomColor(), title))
             }
             close()
         }
@@ -68,7 +70,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.info_menu, menu)
+        menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
 
